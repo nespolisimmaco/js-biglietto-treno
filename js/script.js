@@ -37,3 +37,8 @@ if(!isNaN(kilometres, age)) {
 
 // OUTPUT
 // Prezzo finale con massimo due decimali
+document.getElementById("message").innerHTML = message;
+let fixedPrice = ticketPrice.toFixed(2);
+document.getElementById("user-age").innerHTML += age;
+document.getElementById("kilometres").innerHTML += kilometres + "km";
+document.getElementById("price").innerHTML += fixedPrice + "€";
