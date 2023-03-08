@@ -13,10 +13,27 @@ const age = parseInt(prompt("Qual è la tua età?"));
 console.log("Età:", age);
 // LOGICA
 // Il prezzo del biglietto è definito in base ai chilometri (0.21€ al km)
-
+let ticketPrice = 0.21 * kilometres;
+console.log("Prezzo del biglietto:", ticketPrice);
 // Sconto del 20% per < 18
-
+const minorsDiscount = 0.2 * ticketPrice;
 // Sconto del 40% per > 65
+const eldersDiscount = 0.4 * ticketPrice;
+console.log(minorsDiscount, eldersDiscount);
+// Message
+let message = "Buon viaggio!";
+
+if(!isNaN(kilometres, age)) {
+    if(age < 18) {
+        ticketPrice -= minorsDiscount;
+        console.log("Prezzo con sconto minorenni", ticketPrice); 
+    }else if(age > 65) {
+        ticketPrice -= eldersDiscount;
+        console.log("Prezzo con sconto over 65:", ticketPrice);
+    }  
+}else {
+    message = "Errore! Reinserisci i dati.";
+}
 
 // OUTPUT
 // Prezzo finale con massimo due decimali
