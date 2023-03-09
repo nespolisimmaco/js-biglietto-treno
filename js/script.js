@@ -11,19 +11,19 @@ const kilometres = parseInt(prompt("Benvenuto! Quanti chilometri vuoi percorrere
 console.log("Chilometri:", kilometres);
 const age = parseInt(prompt("Qual è la tua età?"));
 console.log("Età:", age);
-// LOGICA
-// Il prezzo del biglietto è definito in base ai chilometri (0.21€ al km)
-let ticketPrice = 0.21 * kilometres;
-console.log("Prezzo del biglietto:", ticketPrice);
-// Sconto del 20% per < 18
-const minorsDiscount = 0.2 * ticketPrice;
-// Sconto del 40% per > 65
-const eldersDiscount = 0.4 * ticketPrice;
-console.log(minorsDiscount, eldersDiscount);
-// Message
 let message = "Buon viaggio!";
+if(!isNaN(kilometres) && !isNaN(age)) {
+    // LOGICA
+    // Il prezzo del biglietto è definito in base ai chilometri (0.21€ al km)
+    let ticketPrice = 0.21 * kilometres;
+    console.log("Prezzo del biglietto:", ticketPrice);
+    // Sconto del 20% per < 18
+    const minorsDiscount = 0.2 * ticketPrice;
+    // Sconto del 40% per > 65
+    const eldersDiscount = 0.4 * ticketPrice;
+    console.log(minorsDiscount, eldersDiscount);
+    // Message
 
-if(!isNaN(kilometres, age)) {
     if(age < 18) {
         ticketPrice -= minorsDiscount;
         console.log("Prezzo con sconto minorenni", ticketPrice); 
@@ -31,14 +31,14 @@ if(!isNaN(kilometres, age)) {
         ticketPrice -= eldersDiscount;
         console.log("Prezzo con sconto over 65:", ticketPrice);
     }  
-}else {
+    
+    // OUTPUT
+    // Prezzo finale con massimo due decimali
+    let fixedPrice = ticketPrice.toFixed(2);
+    document.getElementById("user-age").innerHTML += age;
+    document.getElementById("kilometres").innerHTML += kilometres + "km";
+    document.getElementById("price").innerHTML += fixedPrice + "€";
+} else {
     message = "Errore! Reinserisci i dati.";
 }
-
-// OUTPUT
-// Prezzo finale con massimo due decimali
 document.getElementById("message").innerHTML = message;
-let fixedPrice = ticketPrice.toFixed(2);
-document.getElementById("user-age").innerHTML += age;
-document.getElementById("kilometres").innerHTML += kilometres + "km";
-document.getElementById("price").innerHTML += fixedPrice + "€";
